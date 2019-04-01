@@ -93,7 +93,6 @@ if (isset($_SESSION['logged_in'])) {
     if (isset($_POST['username'], $_POST['password'])) {
         $username = $_POST['username'] ;
         $password = md5($_POST['password']);
-        $_SESSION['logged_in_username'] = $_POST['username'];
         if (empty($username) or empty($password)) {
             $error = 'All fields are required!';
         } else {
@@ -109,10 +108,12 @@ if (isset($_SESSION['logged_in'])) {
             if ($num == 1) {
 //                correct
                 $_SESSION['logged_in'] = TRUE;
+                $_SESSION['logged_in_username'] = $_POST['username'];
+
                 header('Location: index.php');
             } else {
 //                false
-                
+
                 $error = 'Incorrect credentials.';
             }
         }
