@@ -22,13 +22,12 @@ if (isset($_SESSION['logged_in'])) {
         <body class="mt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-5 col-sm-5 col-md-3 col-lg-2">
+                    <div class="mb-5 col-xs-5 col-sm-5 col-md-3 col-lg-2">
                         <img class="mx-auto d-block p-1 rounded-circle" src="https://via.placeholder.com/150" />
                         <hr />
-                        <p class="text-center"><?php echo $_SESSION['logged_in_username']; ?></p>
+                        <p class="text-center font-weight-bolder"><?php echo $_SESSION['logged_in_username']; ?></p>
                         <hr />
-
-                        <ul class="nav flex-column">
+                        <ul class="nav flex-xs-row flex-sm-column flex-md-column flex-lg-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php">Home</a>
                             </li>
@@ -42,9 +41,9 @@ if (isset($_SESSION['logged_in'])) {
                                 <a class="nav-link" href="logout.php">Logout</a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                            </li>
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+<!--                            </li>-->
                         </ul>
                     </div>
 
@@ -80,6 +79,8 @@ if (isset($_SESSION['logged_in'])) {
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
             <script src="../assets/js/jquery-3.3.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
             <script src="../assets/js/bootstrap.min.js"></script>
         </body>
     </html>
@@ -88,7 +89,8 @@ if (isset($_SESSION['logged_in'])) {
     <?php
 } else {
     //display login
-
+    $username_err = '';
+    $password_err = '';
     if (isset($_POST['username'], $_POST['password'])) {
         $username = $_POST['username'] ;
         $password = md5($_POST['password']);
@@ -150,8 +152,10 @@ if (isset($_SESSION['logged_in'])) {
                     <br /><br />
                 <?php } ?>
                 <form action="index.php" method="POST" autocomplete="off">
-                    <input class="form-control" type="text" name="username" placeholder="Username" />
-                    <input class="form-control mt-1" type="password" name="password" placeholder="Password" />
+                    <input class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" type="text" name="username" placeholder="Username" />
+                    <div class="<?php echo (!empty($username_err)) ? 'invalid-feedback' : ''; ?>"><?php echo $username_err; ?></div>
+                    <input class="form-control mt-1 <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" type="password" name="password" placeholder="Password" />
+                    <div class="<?php echo (!empty($password_err)) ? 'invalid-feedback' : ''; ?>"><?php echo $password_err; ?></div>
                     <input class="btn btn-block btn-outline-dark mt-1" type="submit" value="Log in" />
                 </form>
             </div>

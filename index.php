@@ -28,7 +28,7 @@ $articles = $article->fetch_all();
                 <div class="col-2">
                     <a href="admin">ADMIN</a>
                     <br />
-                    <a href="user">user</a>
+<!--                    <a href="user">user</a>-->
 
                 </div>
 
