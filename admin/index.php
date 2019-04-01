@@ -112,12 +112,7 @@ if (isset($_SESSION['logged_in'])) {
                 header('Location: index.php');
             } else {
 //                false
-                if (empty(trim($_POST['username']))) {
-                    $username_err = 'Field required.';
-                }
-                if (empty(trim($_POST['password']))) {
-                    $password_err = 'Password required.';
-                }
+                
                 $error = 'Incorrect credentials.';
             }
         }
