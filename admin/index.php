@@ -15,6 +15,7 @@ if (isset($_SESSION['logged_in'])) {
 
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+            <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <!--        <link rel="stylesheet" href="../assets/css/style.css">-->
 
             <title>CMS</title>
@@ -22,30 +23,8 @@ if (isset($_SESSION['logged_in'])) {
         <body class="mt-5">
             <div class="container">
                 <div class="row">
-                    <div class="mb-5 col-xs-5 col-sm-5 col-md-3 col-lg-2">
-                        <img class="mx-auto d-block p-1 rounded-circle" src="https://via.placeholder.com/150" />
-                        <hr />
-                        <p class="text-center font-weight-bolder"><?php echo $_SESSION['logged_in_username']; ?></p>
-                        <hr />
-                        <ul class="nav flex-xs-row flex-sm-column flex-md-column flex-lg-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="add.php">Add Article</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="delete.php">Delete Article</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="logout.php">Logout</a>
-                            </li>
 
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
-<!--                            </li>-->
-                        </ul>
-                    </div>
+                    <?php include_once ('../includes/html/left-col.php'); ?>
 
                     <div class="col-xs-7 col-sm-7 col-md-9 col-lg-10">
                         <a href="index.php" id="logo">CMS</a>
