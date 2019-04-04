@@ -4,7 +4,7 @@ include_once ('includes/article.php');
 
 $article = new Article;
 $articles = $article->fetch_all();
-
+print_r ($articles);
 ?>
 
 
