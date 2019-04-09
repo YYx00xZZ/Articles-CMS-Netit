@@ -16,7 +16,7 @@ if (isset($_SESSION['logged_in'])) {
         $query->bindValue(1, $id);
         $query->execute();
 
-        header('Location: delete.php');
+        header('Location: index.php');
     }
     $articles = $article->fetch_all();
 ?>
@@ -39,21 +39,23 @@ if (isset($_SESSION['logged_in'])) {
 
                     <?php include_once('../assets/html/left-col.php'); ?>
 
-                    <div class="col-xs-7 col-sm-7 col-md-9 col-lg-10">
-                        <a href="index.php" id="logo">CMS</a>
-                        <h4 class="mb-0">Select an article to delete</h4>
-                        <small class="text-muted pl-3">Executes immediately!</small>
+                    <div class="col-xs-7 col-sm-7 col-md-9 col-lg-10 mt-5">
+                        <h4 class="mb-0 ml-4">Select an article to delete</h4>
+                        <small class="text-muted pl-3 ml-4">Executes immediately!</small>
 
-                        <form class="mt-3" action="delete.php" method="GET">
-                            <select class="custom-select" onchange="this.form.submit();" name="id">
-                                <?php foreach ($articles as $article) { ?>
-                                    <option value="<?php echo $article['article_id']; ?>">
-                                        <?php echo $article['article_title']; ?>
-                                    </option>
-                                <?php } ?>
-                            </select>
-                        </form>
-
+                        <?php foreach ($articles as $article) { ?>
+                            <form class="mt-1" action="delete.php" method="GET">
+                                <div class="row">
+                                    <div class="col-10">
+                                        <label style="font-size:1.9em" for=""><?php echo $article['article_title']; ?></label>
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn btn-danger" value="<?php echo $article['article_id']; ?>" name="id">Delete</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <hr/>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

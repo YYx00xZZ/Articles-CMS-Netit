@@ -6,20 +6,20 @@
     </p>
     <hr />
     <ul class="nav flex-xs-row flex-sm-column flex-md-column flex-lg-column">
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="index.php">Home</a>-->
-<!--        </li>-->
-        <li class="nav-item">
+        <li class="nav-item text-center">
+            <a class="nav-link" href="index.php">Home</a>
+        </li>
+        <li class="nav-item text-center">
             <a class="nav-link active" href="add.php">Add article</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="update.php">Edit article</a>
+        <li class="nav-item text-center">
+            <a class="nav-link" href="edit.php">Edit article</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item text-center">
             <a class="nav-link" href="delete.php">Delete article</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="logout.php">Logout</a>
+            <a class="nav-link text-center" href="logout.php">Logout</a>
         </li>
     </ul>
 </div>
