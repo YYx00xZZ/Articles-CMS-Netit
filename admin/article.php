@@ -22,9 +22,11 @@
             <link rel="stylesheet" href="../assets/css/style.css">
             <title>CMS</title>
         </head>
-        <body class="mt-5">
-            <div class="container">
+        <body>
+            <div class="container-fluid">
                 <?php include_once ('../assets/html/user-details-row.php'); ?>
+            </div>
+            <div class="container">
                 <a class="btn ml-3 mt-1" href="index.php">&larr; Back</a>
 
                 <div class="row mt-2">
@@ -62,6 +64,6 @@
 
 <?php
     } else {
-        header('location: index.php');
+        header('location: admin');
     }
 ?>

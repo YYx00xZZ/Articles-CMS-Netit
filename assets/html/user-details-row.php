@@ -1,27 +1,31 @@
-<div class="row">
-    <div class="col-2">
-        <img class="mx-auto d-block p-0 m-0 rounded-circle" src="https://via.placeholder.com/120" />
-    </div>
-    <div class="col-7">
-        <p class="text-center font-weight-bold">Logged in as: <?php echo $_SESSION['logged_in_username']; ?></p>
-    </div>
-    <div class="col-3">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+        <a class="navbar-brand" href="#">Admin Panel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarsExample11">
+            <ul class="navbar-nav nav-tabs">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php">Manage articles</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="users.php">Manage users</a>
+                </li>
 
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link btn btn-sm btn-outline-dark mr-1" href="add.php">Add article</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-sm btn-outline-dark" href="logout.php">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="statistics.php">Statistics<sup><span class="badge badge-secondary ml-1">Coming soon</span></sup></a>
+                </li>
+
+<!--                <small class="text-muted text-monospace pr-2">coming soon</small>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-<hr/>
+</nav>

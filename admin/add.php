@@ -26,10 +26,22 @@
             <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
             <title>CMS</title>
         </head>
-        <body class="mt-3">
-            <div class="container">
+        <body>
+            <div class="container-fluid">
                 <?php include_once ('../assets/html/user-details-row.php'); ?>
-                <a class="btn ml-3 mt-1" href="index.php">&larr; Back</a>
+            </div>
+            <div class="container">
+                    <div class="row">
+                        <div class="offset-sm-2 offset-md-3 offset-lg-4 col-sm-8 col-md-6 col-lg-6 offset-sm-2 offset-md-3 offset-lg-1 offset-xl-4 col-xl-8">
+                            <div class="d-flex flex-row">
+                            <div class="p-1"><a href="index.php" class="btn btn-sm mt-1 mb-3 ml-md-3 ml-xl-5 border-left border-top border-bottom">&larr; Back</a></div>
+                            <div class="p-1"><a href="#" class="btn btn-sm mt-1 mb-3 border-top border-bottom border-left-0 border-right-0 disabled">Create Poll</a></div>
+                            <div class="p-1"><a href="#" class="btn btn-sm mt-1 mb-3 border-top border-bottom border-right disabled">Ban User</a></div>
+                        </div>
+                    </div>
+                </div>
+
+<!--                <a class="btn ml-3 mt-1" href="index.php">&larr; Back</a>-->
                 <div class="row">
                     <div class="col-12 mt-4">
                         <h4 class="ml-4">Add Article</h4>
@@ -51,6 +63,6 @@
     </html>
 <?php
     } else {
-        header('Location: index.php');
+        header('Location: admin');
     }
 ?>

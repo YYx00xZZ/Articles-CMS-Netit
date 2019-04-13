@@ -1,11 +1,11 @@
 <?php
 
-session_start();
+    session_start();
 
-include_once ('../includes/connection.php');
-include_once ('../includes/article.php');
+    include_once ('../includes/connection.php');
+    include_once ('../includes/article.php');
 
-$article = new Article;
+    $article = new Article;
 
 if (isset($_SESSION['logged_in'])) {
 //    display delete page
