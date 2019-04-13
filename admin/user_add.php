@@ -1,10 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ThinkPad-T430
- * Date: 4/12/2019
- * Time: 1:01 AM
- */
+    session_start();
+
+    if(isset($_SESSION['logged_in'])) {
+
 
     include_once('../includes/connection.php');
 
@@ -12,7 +10,7 @@ $username = $pwd = $pwd2 = $fname = $lname = '';
 $username_err = $pwd_err = $pwd2_err = $fname_err = $lname_err = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    print_r($_POST);
+//    print_r($_POST);
     //valid username
         if(empty(trim($_POST['username']))){
             $username_err = "Username is required";
@@ -101,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <?php include_once ('../assets/html/user-details-row.php'); ?>
+            <?php include_once('../assets/html/navbar.php'); ?>
         </div>
     </div>
 </div>
@@ -120,15 +118,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" autocomplete="off">
                 <div class="form-group row">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>
-" id="username" placeholder="username" />
+                    <div class="col-12">
+                        <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" id="username" placeholder="username" />
                         <div class="<?php echo (!empty($username_err)) ? 'invalid-feedback' : ''; ?>"><?php echo $username_err; ?></div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="pwd" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <input type="password" class="form-control <?php echo (!empty($pwd_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $pwd; ?>
 " id="pwd" placeholder="password" name="pwd" />
                         <div class="<?php echo (!empty($pwd_err)) ? 'invalid-feedback' : ''; ?>"><?php echo $pwd_err; ?></div>
@@ -136,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="form-group row">
                     <label for="pwd2" class="col-sm-2 col-form-label">Confirm password</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <input type="password" class="form-control <?php echo (!empty($pwd2_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $pwd2; ?>
 " id="pwd2" placeholder="Confirm password" name="pwd2" />
                         <div class="<?php echo (!empty($pwd2_err)) ? 'invalid-feedback' : ''; ?>"><?php echo $pwd2_err; ?></div>
@@ -144,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="form-group row">
                     <label for="fname" class="col-sm-2 col-form-label">First name</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <input type="text" class="form-control <?php echo (!empty($fname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $fname; ?>
 " id="fname" placeholder="First Name" name="fname" />
                         <div class="<?php echo (!empty($fname_err)) ? 'invalid-feedback' : ''; ?>"><?php echo $fname_err; ?></div>
@@ -152,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="form-group row">
                     <label for="lname" class="col-sm-2 col-form-label">Last name</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <input type="text" class="form-control <?php echo (!empty($lname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $lname; ?>
 " id="lanme" placeholder="Last Name" name="lname" />
                         <div class="<?php echo (!empty($lname_err)) ? 'invalid-feedback' : ''; ?>"><?php echo $lname_err; ?></div>
@@ -170,3 +167,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 </body>
 </html>
+<?php } else {
+        header('location: index.php');
+    } ?>

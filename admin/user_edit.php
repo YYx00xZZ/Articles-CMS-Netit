@@ -24,74 +24,70 @@ if (isset($_SESSION['logged_in'])) {
     </head>
     <body>
     <div class="container-fluid">
-        <?php include_once ('../assets/html/user-details-row.php'); ?>
+        <?php include_once('../assets/html/navbar.php'); ?>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <form method="POST" action="user_update.php?id=<?php echo $data['user_id']; ?>">
-                    <div class="row mt-5 mb-5 p-1">
-                        <div class="col-4">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text text-body">USER ID</div>
-                                </div>
-                                <input type="text" class="form-control" id="id" value="<?php echo $data['user_id']; ?>">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text text-body">USERNAME</div>
-                                </div>
-                                <input type="text" class="form-control" id="displayUsername" value="<?php echo $data['user_name']; ?>">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text text-body">MEMBER SINCE</div>
-                                </div>
-                                <input type="text" class="form-control" id="id" value="<?php echo date('d/m/Y', $data['user_created_at']); ?>">
-                            </div>
+                    <div class="row mt-5 mb-3 p-1">
+                        <div class="col-12">
+                            <ul class="list-group list-group-horizontal-sm mx-auto justify-content-center">
+                                <li class="list-group-item text-center">User ID: <span class="pl-3"><?php echo $data['user_id']; ?></span></li>
+                                <li class="list-group-item text-center">Username: <span class="pl-3"><?php echo $data['user_name']; ?></span></li>
+                                <li class="list-group-item text-center">Member since: <span class="pl-3"><?php echo date('d/m/Y', $data['user_created_at']); ?></span></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-10">
-                            <div class="form-group">
-                                <label for="username">Username</label>
+                    <div class="row mb-1">
+                        <div class="col-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend w-25">
+                                    <div class="input-group-text w-100">Username</div>
+                                </div>
                                 <input id="username" name="username" type="text" class="form-control" value="<?php echo $data['user_name']; ?>" />
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-10">
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input name="password" type="password" class="form-control" placeholder="Enter new password for this user" />
+                    <div class="row mb-1">
+                        <div class="col-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend w-25">
+                                    <div class="input-group-text w-100">Password</div>
+                                </div>
+                                <!--input-->
+                                <input name="password" type="text" class="form-control" placeholder="Enter new password for this user" />
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-10">
-                            <div class="form-group">
-                                <label for="fname">First Name</label>
+                    <div class="row mb-1">
+                        <div class="col-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend w-25">
+                                    <div class="input-group-text w-100">First Name</div>
+                                </div>
+                                <!--input-->
                                 <input name="fname" type="text" class="form-control" value="<?php echo $data['user_first_name']; ?>" />
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-10">
-                            <label for="lname">Last Name</label>
-                            <input name="lname" type="text" class="form-control" value="<?php echo $data['user_last_name']; ?>" />
+                    <div class="row mb-1">
+                        <div class="col-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend w-25">
+                                    <div class="input-group-text w-100">Last Name</div>
+                                </div>
+                                <!--input-->
+                                <input name="lname" type="text" class="form-control" value="<?php echo $data['user_last_name']; ?>" />
+
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-10">
-                            <label for="email">Email</label>
+                    <div class="row mb-1">
+                        <div class="col-12">
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
+                                <div class="input-group-prepend w-25">
+                                    <div class="input-group-text w-100">Email @</div>
                                 </div>
                                 <input name="email" type="email" class="form-control" id="email" value="<?php echo $data['user_email']; ?>">
                             </div>
@@ -99,7 +95,7 @@ if (isset($_SESSION['logged_in'])) {
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input class="btn btn-primary form-control mt-4" type="submit" name="update" value="Edit" onclick="return confirm('Submit?');" />
+                            <input class="btn btn-warning form-control mt-4" type="submit" name="update" value="Update" onclick="return confirm('Submit?');" />
                         </div>
                     </div>
                 </form>

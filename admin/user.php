@@ -16,7 +16,7 @@
         </head>
         <body class="mt-5">
             <div class="container">
-                <?php include_once ('../assets/html/user-details-row.php'); ?>
+                <?php include_once('../assets/html/navbar.php'); ?>
                 <div class="row">
                     <div class="col-12 mt-5">
                         <div class="card-deck">

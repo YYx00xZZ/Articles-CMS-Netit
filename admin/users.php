@@ -23,7 +23,7 @@
         </head>
         <body>
             <div class="container-fluid">
-                <?php include_once ('../assets/html/user-details-row.php'); ?>
+                <?php include_once('../assets/html/navbar.php'); ?>
             </div>
             <div class="container">
                 <div class="row">
